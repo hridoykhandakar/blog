@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+body {
+  font-family: sans-serif;
+  /* overflow: hidden; */
+}
+header {
+  font-family: "Montserrat", sans-serif;
+  background: #f9f6f9;
+}
+
+nav a {
+  color: #8f8f8f;
+}
+.logo {
+  border: 2px solid #1cb491;
+  padding: 5px;
+}
+nav {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-list li {
+  margin-left: 100px;
+  font-size: 18px;
+}
+.nav-list li:hover a {
+  color: #1cb491;
+  transition: ease-in-out 0.2s;
+}
+main {
+  /* height: 75vh; */
+  margin-top: 70px !important;
+  margin-bottom: 70px !important;
+}
+
+.footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #1abc9c;
+}
+
+.footer p {
+  margin-top: 25px;
+  font-size: 12px;
+  color: #fff;
+}
+.compose-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.compose-form input {
+  padding: 10px 20px;
+}
+
+.compose-form textarea {
+  margin: 10px 0;
+  padding: 10px;
+}
+.btn {
+  padding: 10px 20px;
+  background: #1cb491;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+}
+
+.post-content {
+  margin: 20px 0;
+  padding: 10px 0;
+}
