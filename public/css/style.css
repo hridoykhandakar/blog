@@ -64,7 +64,7 @@ header {
 .main {
   display: grid;
   place-items: center;
-  gap: 2rem;
+  gap: 2rem 0;
   max-width: 1080px;
   margin: 0 auto;
   padding: 2rem 0;
@@ -72,10 +72,12 @@ header {
 }
 
 .blog {
-  /* border: 1px solid blueviolet; */
   border-radius: 0.5rem;
   padding: 2rem;
+  margin: 0 2rem;
+  overflow: hidden;
   display: flex;
+  /* align-items: center; */
   justify-content: space-around;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   width: 100%;
@@ -118,7 +120,7 @@ footer {
   /* background: rgb(129, 129, 129); */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   gap: 0.5rem;
   max-width: 500px;
   margin: 0 auto;
@@ -154,4 +156,22 @@ footer {
 }
 .nav--btn {
   border: none;
+}
+.post-content {
+  margin: 0 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .blog {
+    flex-direction: column;
+    margin: 0 3rem;
+    /* align-items: center; */
+  }
+  .blog .more {
+    padding: 0.5rem;
+    font-size: 14px;
+  }
+  .blog .meta {
+    margin-top: 1rem;
+  }
 }

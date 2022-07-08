@@ -2,8 +2,6 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
-const _ = require("lodash");
-const { post } = require("./post");
 const moment = require("moment");
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -18,9 +16,12 @@ app.set("view engine", "ejs");
 const today = moment().format("MMMM Do YYYY");
 
 // database configuration starts here
-mongoose.connect("mongodb://localhost:27017/blogSite", () => {
-  console.log("connet");
-});
+mongoose.connect(
+  "mongodb+srv://admin:admin@todo.c4g5c.mongodb.net/?retryWrites=true&w=majority",
+  () => {
+    console.log("connet");
+  }
+);
 
 const blogSchema = new mongoose.Schema({
   title: String,
@@ -44,8 +45,8 @@ app.get("/", (req, res) => {
 app.get("/compose", (req, res) => {
   res.render("compose", { title: "Compose" });
 });
+
 app.post("/compose", (req, res) => {
-  // res.send("success");
   const title = req.body.title;
   const post = req.body.postbody;
   const dpost = new Blog({
@@ -57,15 +58,9 @@ app.post("/compose", (req, res) => {
   res.redirect("/");
 });
 
-app.get("/test/:name", (req, res) => {
-  res.render("test", { fPost: post, name: req.params.name });
-  console.log(req.params.name);
-});
-
 app.get("/posts/:postName", (req, res) => {
-  // let needTitle = _.lowerCase(req.params.postName);
   let needTitle = req.params.postName;
-  // console.log(needTitle);
+
   Blog.findOne({ title: needTitle }, (err, fpost) => {
     if (err) {
       res.redirect("/");
@@ -73,15 +68,6 @@ app.get("/posts/:postName", (req, res) => {
       res.render("post", { fpost });
     }
   });
-  // if (fposts) {
-  //   fPost = {
-  //     title: fposts.title,
-  //     postbody: fposts.postbody,
-  //   };
-  // } else {
-  //   res.redirect("/");
-  // }
-  // res.render("post", { fPost });
 });
 
 app.listen(3000, () => {
