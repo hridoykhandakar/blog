@@ -1,14 +1,21 @@
 <%- include("./partials/header");-%>
-<main class="wrapper form-page">
-  <div class="page-title">
-    <h1><%= title %></h1>
-  </div>
-  <form action="/compose" class="compose-form" method="post">
+<main class="main-form">
+  <section class="form-title">
+    <h3>Write a Post Here</h3>
+  </section>
+
+  <form action="/compose" class="form-control" method="post">
     <label for="title"> Title</label>
-    <input type="text" name="title" placeholder="Post title" />
+    <input
+      class="post-title"
+      type="text"
+      name="title"
+      placeholder="Post title"
+    />
     <label for="postbody">Post</label>
-    <textarea name="postbody" id="" cols="30" rows="10"> </textarea>
-    <button type="submit" class="btn">Publish</button>
+    <textarea class="text-area" name="postbody" id="" cols="30" rows="10">
+    </textarea>
+    <button type="submit" class="btn more">Publish</button>
   </form>
 </main>
 <%- include("./partials/footer");-%>

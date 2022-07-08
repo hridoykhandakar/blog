@@ -1,4 +1,4 @@
-export default function getDay() {
+function getDay() {
   const today = new Date();
   const options = {
     // weekday: "long",
@@ -9,6 +9,4 @@ export default function getDay() {
   console.log(today.toLocaleDateString("en-US", options));
 }
 
-export let pi = 3.14;
-
-// export default getDay;
+module.export = getDay;

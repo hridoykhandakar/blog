@@ -1,24 +1,29 @@
 <%- include("./partials/header");-%>
-<main class="wrapper">
+<main class="main">
   <div class="page-title">
     <h1><%= title %></h1>
   </div>
-  <p>
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, nulla unde?
-    Quas, numquam tenetur laudantium tempore voluptas eligendi sapiente alias.
-  </p>
-  <div class="post">
-    <% for(p of post){ %>
-    <div class="post-content">
-      <h1><%= p.title %></h1>
+  <% for(p of blog){ %>
+  <div class="blog">
+    <div class="content">
+      <h2 class="title">
+        <a href=""> <%= p.title %> </a>
+      </h2>
       <p>
-        <%= p.postbody.substring(1,100) %>
-        <a href="/posts/<%= p.title %>">Read More</a>
+        <%= p.post.substring(1,150) %> <br /><a
+          href="/posts/<%= p.title %>"
+          class="more"
+          >Read more</a
+        >
       </p>
     </div>
-
-    <% } %>
+    <div class="meta">
+      <div class="date">
+        <span>Publish on <strong> <%= p.time%> </strong> </span>
+      </div>
+    </div>
   </div>
+  <% } %>
 </main>
 
 <%- include("./partials/footer");-%>

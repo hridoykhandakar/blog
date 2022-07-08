@@ -1,8 +1,15 @@
 <%- include("./partials/header");-%>
-<main class="wrapper">
-  <div class="post">
-    <h1><%= fPost.title %></h1>
-    <p><%= fPost.postbody %></p>
+<main class="main">
+  <div class="content">
+    <h2 class="title">
+      <a href=""> <%= fpost.title %> </a>
+    </h2>
+    <p><%= fpost.post%></p>
+  </div>
+  <div class="meta">
+    <div class="date">
+      <span>Publish on <strong> <%= fpost.time%> </strong> </span>
+    </div>
   </div>
 </main>
 <%- include("./partials/footer");-%>
