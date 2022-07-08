@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
 const moment = require("moment");
+require("dotenv").config();
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
@@ -11,18 +12,24 @@ app.use(express.urlencoded({ extended: true }));
 // set view ngine
 
 app.set("view engine", "ejs");
-const port = process.env.PORT || 3000;
-
+const port = process.env.PORT || 5000;
+// db info
+const username = process.env.NAME;
+const password = process.env.SECRET_KEY;
 // all Router
 const today = moment().format("MMMM Do YYYY");
 
 // database configuration starts here
-mongoose.connect(
-  "mongodb+srv://admin:admin@todo.c4g5c.mongodb.net/?retryWrites=true&w=majority",
-  () => {
+mongoose
+  .connect(
+    `mongodb+srv://${username}:${password}@todo.c4g5c.mongodb.net/?retryWrites=true&w=majority`
+  )
+  .then(() => {
     console.log("connet");
-  }
-);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 const blogSchema = new mongoose.Schema({
   title: String,
