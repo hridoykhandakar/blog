@@ -11,6 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 // set view ngine
 
 app.set("view engine", "ejs");
+const port = process.env.PORT || 3000;
 
 // all Router
 const today = moment().format("MMMM Do YYYY");
@@ -70,6 +71,6 @@ app.get("/posts/:postName", (req, res) => {
   });
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log("server running on port 3000");
+app.listen(port, () => {
+  console.log(`server running on port ${port}`);
 });
